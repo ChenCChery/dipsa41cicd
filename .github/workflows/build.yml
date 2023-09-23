@@ -4,7 +4,7 @@ on:
     branches:
     - 'v1.0'
     tags:
-    - 'latest2'
+    - 'latest'
 
 jobs:
   ci:
@@ -18,14 +18,14 @@ jobs:
         uses: rickstaa/action-create-tag@v1
         id: "tag_create"
         with:
-          tag: "latest2"
+          tag: "latest"
           force_push_tag: true
           message: "Lastest release"
       - name: Release
         uses: ncipollo/release-action@v1
         with:
           skipIfReleaseExists: true
-          tag: "latest2"
+          tag: "latest"
           artifacts: "release.tar.gz,foo/*.txt"
           bodyFile: "body.md"
 
