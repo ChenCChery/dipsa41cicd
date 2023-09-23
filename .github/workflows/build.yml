@@ -4,7 +4,7 @@ on:
     branches:
     - 'v1.0'
     tags:
-    - 'latest'
+    - 'latest2'
 
 jobs:
   ci:
