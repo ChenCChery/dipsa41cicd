@@ -49,14 +49,14 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Name: Chen Yuhang"
+                    "text": "*Name:*\n Chen Yuhang"
                   }
                 },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Metriculation: A0276815U"
+                    "text": "*Metriculation:*\n A0276815U"
                   }
                 },
                 {
@@ -65,7 +65,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "Email : 1015601890@qq.com"
+                      "text": "*Email :*\n 1015601890@qq.com"
                     }
                   ]
                 }
