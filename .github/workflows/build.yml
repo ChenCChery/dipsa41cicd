@@ -36,17 +36,6 @@ jobs:
         run: railway up
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN}}
-
-      - name: Deploy to Railway
-        run: railway up
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-          post-actions:
-      - name: Extract Railway Deployment URL
-        id: deployment_url
-        run: |
-          DEPLOYMENT_URL=$(railway status | grep "Deployment URL" | awk '{print $3}')
-          echo "::set-output name=url::$DEPLOYMENT_URL"
       
       - name: Get Repository URL
         id: repo_url
@@ -100,7 +89,7 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Deployment :*\n ${{steps.deployment_url.outputs.url}}"
+                      "text": "*Deployment :*\n https://dipsa41cicd-production.up.railway.app/"
                     }
                   ]
                 }
