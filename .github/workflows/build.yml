@@ -36,6 +36,21 @@ jobs:
         run: railway up
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN}}
+
+      - name: Deploy to Railway
+        run: railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          post-actions:
+      - name: Extract Railway Deployment URL
+        id: deployment_url
+        run: |
+          DEPLOYMENT_URL=$(railway status | grep "Deployment URL" | awk '{print $3}')
+          echo "::set-output name=url::$DEPLOYMENT_URL"
+      
+      - name: Get Repository URL
+        id: repo_url
+        run: echo "::set-output name=url::https://github.com/${{ github.repository }}"
             
       - name: Send custom JSON data to Slack workflow
         id: slack
@@ -66,6 +81,26 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "*Email :*\n 1015601890@qq.com"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "block_id": "section790",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository :*\n ${{steps.repo_url.outputs.url}}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "block_id": "section791",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Deployment :*\n ${{steps.deployment_url.outputs.url}}"
                     }
                   ]
                 }
