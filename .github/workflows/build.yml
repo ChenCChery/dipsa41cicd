@@ -36,10 +36,7 @@ jobs:
         run: railway up
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN}}
-      - name: Get URL
-        build: 
-          variables:
-            repository: ${{ github.repository }}
+            
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
@@ -78,7 +75,7 @@ jobs:
                     "fields": [
                       {
                         "type": "mrkdwn",
-                        "text": "Repository : ${{ variables.repository }}"
+                        "text": "Repository :"
                       }
                     ]
                   }
