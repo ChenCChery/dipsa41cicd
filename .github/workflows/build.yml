@@ -41,47 +41,39 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          payload:
-              {
-                "text": "CICD Workshop by Chen Yuhang",
-                "blocks": [
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "Name: Chen Yuhang"
-                    }
-                  },
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "Metriculation: A0276815U"
-                    }
-                  },
-                  {
-                    "type": "section",
-                    "block_id": "section789",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "Email : 1015601890@qq.com"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "section",
-                    "block_id": "section789",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "Repository :"
-                      }
-                    ]
+          payload:  |
+            {
+              "text": "CICD Workshop by Chen Yuhang",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Name: Chen Yuhang"
                   }
-                ]
-              }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Metriculation: A0276815U"
+                  }
+                },
+                {
+                  "type": "section",
+                  "block_id": "section789",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "Email : 1015601890@qq.com"
+                    }
+                  ]
+                }
+              ]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
+        
+          
